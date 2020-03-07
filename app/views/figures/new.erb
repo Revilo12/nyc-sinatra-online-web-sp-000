@@ -3,3 +3,5 @@
   <% @titles.each do |title| %>
     <input type="checkbox" id="<%= title.id %>" value="<%= title.id %>" name="figure[title_ids][]"><%= title.name %></input>
   <% end %>
+  <input type="submit" id="Creat New Figure" value="Create New Figure">
+</form>
