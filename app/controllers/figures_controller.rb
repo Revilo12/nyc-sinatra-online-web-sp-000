@@ -10,19 +10,19 @@ class FiguresController < ApplicationController
     @titles = Title.all
     erb :'figures/new'
   end
-
-  post '/figures' do
-    @figure = Figure.create(params[:figure])
-    @landmark_name = params[:landmark][:name]
-    @title_name = params[:title][:name]
-
-    if !@landmark_name.empty?
-      if !(landmark = Landmark.fing_by(name: @landmark_name))
-        landmark = Landmark.create(name: @landmark_name)
-      end
-      @figure.landmarks << landmark
-    end
-  end
+  # 
+  # post '/figures' do
+  #   @figure = Figure.create(params[:figure])
+  #   @landmark_name = params[:landmark][:name]
+  #   @title_name = params[:title][:name]
+  # 
+  #   if !@landmark_name.empty?
+  #     if !(landmark = Landmark.fing_by(name: @landmark_name))
+  #       landmark = Landmark.create(name: @landmark_name)
+  #     end
+  #     @figure.landmarks << landmark
+  #   end
+  # end
 
   get '/figures/:id' do
     @figure = Figure.find(params[:id])
