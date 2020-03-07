@@ -15,7 +15,7 @@ class FiguresController < ApplicationController
     @figure = Figure.create(params[:figure])
     @landmark_name = params[:landmark][:name]
     @title_name = params[:title][:name]
-    
+
     if !@landmark_name.empty?
       if !(landmark = Landmark.fing_by(name: @landmark_name))
         landmark = Landmark.create(name: @landmark_name)
