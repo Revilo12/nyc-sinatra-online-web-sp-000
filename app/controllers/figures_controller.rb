@@ -16,13 +16,13 @@ class FiguresController < ApplicationController
     @landmark_name = params[:landmark][:name]
     @title_name = params[:title][:name]
     if !@title_name.empty?
-      if !(title = Title.fing_by(name: @title_name))
+      if !(title = Title.find_by(name: @title_name))
         title = Title.create(name: @title_name)
       end
       @figure.titles << title
     end
     if !@landmark_name.empty?
-      if !(landmark = Landmark.fing_by(name: @landmark_name))
+      if !(landmark = Landmark.find_by(name: @landmark_name))
         landmark = Landmark.create(name: @landmark_name)
       end
       @figure.landmarks << landmark
@@ -47,13 +47,13 @@ class FiguresController < ApplicationController
     @landmark_name = params[:landmark][:name]
     @title_name = params[:title][:name]
     if !@title_name.empty?
-      if !(title = Title.fing_by(name: @title_name))
+      if !(title = Title.find_by(name: @title_name))
         title = Title.create(name: @title_name)
       end
       @figure.titles << title
     end
     if !@landmark_name.empty?
-      if !(landmark = Landmark.fing_by(name: @landmark_name))
+      if !(landmark = Landmark.find_by(name: @landmark_name))
         landmark = Landmark.create(name: @landmark_name)
       end
       @figure.landmarks << landmark
