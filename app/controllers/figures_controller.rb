@@ -28,7 +28,7 @@ class FiguresController < ApplicationController
       @figure.landmarks << landmark
     end
     @figure.save
-    redirect '/figures/#{@figure.id}'
+    redirect "/figures/#{@figure.id}"
   end
 
   get '/figures/:id' do
@@ -59,7 +59,7 @@ class FiguresController < ApplicationController
       @figure.landmarks << landmark
     end
     @figure.save
-    redirect '/figures/#{@figure.id}'
+    redirect "/figures/#{@figure.id}"
   end
 
 end
