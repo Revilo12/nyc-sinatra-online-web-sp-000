@@ -10,7 +10,7 @@ class FiguresController < ApplicationController
     @titles = Title.all
     erb :'figures/new'
   end
-  
+
   post '/figures' do
     @figure = Figure.create(params[:figure])
     @landmark_name = params[:landmark][:name]
@@ -28,7 +28,7 @@ class FiguresController < ApplicationController
     @figure = Figure.find(params[:id])
     erb :'figures/show'
   end
-  
+
   def helpers
     # def check_set_input_name(instance, input_name, input_class)
     #   if !@landmark_name.empty?
