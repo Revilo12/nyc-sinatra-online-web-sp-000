@@ -34,7 +34,7 @@ class FiguresController < ApplicationController
         if !(assigned_instance = send("#{input_class}.find_by(name: #{input_name}))")
           assigned_instance = send("#{input_class}.create(name: #{input_name}))")
         end
-        instance.assigned_instances << assigned_instance
+        send("#{input_class}.#{input_class.name.downcase}") << assigned_instance
       end
     end
   end
