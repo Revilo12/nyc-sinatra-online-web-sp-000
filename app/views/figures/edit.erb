@@ -1,6 +1,6 @@
 <form action='/figures' method="POST">
   <input type="hidden" id="hidden" name="_method" value="patch">
-  <input type="text" name="figure[name]" id="figure_name">Figure Name</label><br>
+  <input type="text" name="figure[name]" id="figure_name" value="<%= @figure.name %>">Figure Name</label><br>
   <% @titles.each do |title| %>
     <input type="checkbox" id="title_<%= title.id %>" value="<%= title.id %>" name="figure[title_ids][]"><%= title.name %></input><br>
   <% end %>
