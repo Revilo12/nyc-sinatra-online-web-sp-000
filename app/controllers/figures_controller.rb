@@ -29,7 +29,7 @@ class FiguresController < ApplicationController
     erb :'figures/show'
   end
 
-  def helper
+  def helpers
     def check_set_input_name(instance, input_name, input_class)
       if !@landmark_name.empty?
         if !(assigned_instance = send("#{input_class}.find_by(name: #{input_name})")
