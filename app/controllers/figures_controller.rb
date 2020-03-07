@@ -22,6 +22,7 @@ class FiguresController < ApplicationController
       end
       @figure.landmarks << landmark
     end
+  end
 
   get '/figures/:id' do
     @figure = Figure.find(params[:id])
