@@ -15,14 +15,29 @@ class FiguresController < ApplicationController
     @figure = Figure.create(params[:figure])
     @landmark_name = params[:landmark][:name]
     @title_name = params[:title][:name]
-    if !params[:landmark][:name].empty?
-      if landmark = Landmark.fing_by(name: pa)
+    
+    if !@landmark_name.empty?
+      if !(landmark = Landmark.fing_by(name: @landmark_name))
+        landmark = Landmark.create(name: @landmark_name)
+      end
+      @figure.landmarks << landmark
+    end
 
   get '/figures/:id' do
     @figure = Figure.find(params[:id])
     erb :'figures/show'
   end
 
-
+  def helper
+    #check(@figure, landmark_name, class)
+    def check_set_input_name(instance, input_name, input_class)
+      if !@landmark_name.empty?
+        if !(landmark = Landmark.fing_by(name: @landmark_name))
+          landmark = Landmark.create(name: @landmark_name)
+        end
+        @figure.landmarks << landmark
+      end
+    end
+  end
 
 end
