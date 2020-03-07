@@ -29,13 +29,12 @@ class FiguresController < ApplicationController
   end
 
   def helper
-    #check(@figure, landmark_name, class)
     def check_set_input_name(instance, input_name, input_class)
       if !@landmark_name.empty?
-        if !(landmark = Landmark.fing_by(name: @landmark_name))
-          landmark = Landmark.create(name: @landmark_name)
+        if !(assigned_instance = send("#{input_class}.find_by(name: #{input_name}))")
+          assigned_instance = send("#{input_class}.create(name: #{input_name}))")
         end
-        @figure.landmarks << landmark
+        instance.assigned_instances << assigned_instance
       end
     end
   end
