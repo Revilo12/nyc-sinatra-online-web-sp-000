@@ -1,3 +1,4 @@
 <%= @figure.name %>
-<%= @figure.titles.each {|thing| thing.name + '\n' } %>
-<%= @figure.landmarks.each {|thing| thing.name + '\n' } %>
+<% @figure.titles.each do |title| %>
+  <%= title.name %><br>
+<% end %>
